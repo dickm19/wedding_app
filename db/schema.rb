@@ -47,7 +47,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_04_192718) do
     t.datetime "date"
     t.string "city"
     t.string "state"
+    t.bigint "user_id", null: false
+    t.string "dress_code"
+    t.index ["user_id"], name: "index_weddings_on_user_id"
   end
 
   add_foreign_key "venues", "weddings"
+  add_foreign_key "weddings", "users"
 end
