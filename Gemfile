@@ -61,3 +61,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# User Auth gems
+gem "rack-cors"
+gem 'bcrypt'
