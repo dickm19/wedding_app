@@ -67,4 +67,4 @@ gem "rack-cors"
 gem "bcrypt"
 
 # Other
-gem 'active_model_serializers'
+gem "active_model_serializers"
