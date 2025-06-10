@@ -64,4 +64,4 @@ end
 
 # User Auth gems
 gem "rack-cors"
-gem 'bcrypt'
+gem "bcrypt"
