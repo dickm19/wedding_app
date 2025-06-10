@@ -46,10 +46,26 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        if authorized_user? && @user.save
+            render json: {
+                status: :ok,
+                user: @user
+            }
+        else
+            render json: {
+                status: 403,
+                errors: [ "not authorized to update this user" ]
+            }
+        end
+    end
+
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation, :profile_picture_url)
     end
 end
