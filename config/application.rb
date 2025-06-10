@@ -11,7 +11,7 @@ module WeddingApp
     config.middleware.use Rack::Cors do
       allow do
         origins "http://localhost:3000/"
-        resource "*", headers: :any, expose: %w[access-token expiry token-type uid client], methods: [ :post ]
+        resource "*", headers: :any, expose: %w[access-token expiry token-type uid client], methods:  [ :get, :post, :put, :patch, :delete, :options, :head ]
       end
     end
     # Initialize configuration defaults for originally generated Rails version.
