@@ -5,7 +5,6 @@ class CreateWeddings < ActiveRecord::Migration[8.0]
       t.datetime :date
       t.string :city
       t.string :state
-      t.references :user, null: false, foreign_key: true
       t.string :dress_code
     end
   end

@@ -42,13 +42,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_04_200321) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "role", default: "nearlywed", null: false
     t.string "profile_picture_url"
+    t.bigint "wedding_id"
     t.string "rsvp"
+    t.index ["wedding_id"], name: "index_users_on_wedding_id"
   end
 
   create_table "venues", force: :cascade do |t|
@@ -74,13 +76,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_04_200321) do
     t.datetime "date"
     t.string "city"
     t.string "state"
-    t.bigint "user_id", null: false
     t.string "dress_code"
-    t.index ["user_id"], name: "index_weddings_on_user_id"
   end
 
   add_foreign_key "items", "registries"
   add_foreign_key "registries", "weddings"
+  add_foreign_key "users", "weddings"
   add_foreign_key "venues", "weddings"
-  add_foreign_key "weddings", "users"
 end
