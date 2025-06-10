@@ -65,3 +65,6 @@ end
 # User Auth gems
 gem "rack-cors"
 gem "bcrypt"
+
+# Other
+gem 'active_model_serializers'
