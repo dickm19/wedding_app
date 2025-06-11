@@ -5,9 +5,7 @@ class UsersController < ApplicationController
     def index
         @users = User.all
         if @users
-            render json: {
-                users: @users
-            }
+            render json: @users, each_serializer: UserSerializer
         else
             render json: {
                 status: 500,
@@ -19,9 +17,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         if @user
-            render json: {
-                user: @user
-            }
+            render json: @user, serializer: UserSerializer
         else
             render json: {
                 status: 500,
@@ -34,10 +30,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!
-            render json: {
-                status: :created,
-                user: @user
-            }
+            render json: @user, serializer: UserSerializer
         else
             render json: {
                 status: 500,
@@ -49,11 +42,9 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(user_params)
+        @user.avatar.attach(params[:avatar]) if params[:avatar]
         if authorized_user? && @user.save
-            render json: {
-                status: :ok,
-                user: @user
-            }
+            render json: @user, serializer: UserSerializer
         else
             render json: {
                 status: 403,
@@ -61,7 +52,6 @@ class UsersController < ApplicationController
             }
         end
     end
-
 
     private
 

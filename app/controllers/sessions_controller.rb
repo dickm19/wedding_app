@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
 
         if @user && @user.authenticate(session_params[:password])
             login!
+            serialized_user = UserSerializer.new(@user).as_json
             render json: {
                 logged_in: true,
-                user: @user
+                user: serialized_user
             }
         else
             render json: {
@@ -18,9 +19,10 @@ class SessionsController < ApplicationController
 
     def is_logged_in?
         if logged_in? && current_user
+            serialized_user = UserSerializer.new(current_user).as_json
             render json: {
                 logged_in: true,
-                user: current_user
+                user: serialized_user
             }
         else
             render json: {
