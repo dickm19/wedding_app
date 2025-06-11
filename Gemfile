@@ -72,3 +72,8 @@ gem "active_model_serializers"
 # debugging
 gem "pry-rails"
 gem "pry"
+
+# testing
+gem "rspec-rails"
+gem "shoulda-matchers"
+gem "factory_bot_rails"
