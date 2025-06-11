@@ -68,3 +68,7 @@ gem "bcrypt"
 
 # Other
 gem "active_model_serializers"
+
+# debugging
+gem "pry-rails"
+gem "pry"
