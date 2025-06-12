@@ -11,7 +11,7 @@
 /tmp/
 /log/*
 !/log/.keep
-
+/storage/*
 # Used by dotenv library to load environment variables.
 # .env
 
