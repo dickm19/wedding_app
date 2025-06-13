@@ -40,7 +40,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe 'POST #create' do
-        subject(:create) { post :create, params: { user: user_params.merge({ email: "test2@example.com"}) } }
+        subject(:create) { post :create, params: { user: user_params.merge({ email: "test2@example.com" }) } }
         before { create }
 
         it 'returns a success response' do
@@ -58,7 +58,7 @@ RSpec.describe UsersController, type: :controller do
         end
 
         context 'when the user has a guest role' do
-            subject(:create_guest) { post :create, params: { user: user_params.merge({ email: "guest@example.com", role: "guest", wedding_id: @user.wedding_id}) } }
+            subject(:create_guest) { post :create, params: { user: user_params.merge({ email: "guest@example.com", role: "guest", wedding_id: @user.wedding_id }) } }
             before { create_guest }
 
             it 'does not create a wedding for the user' do
