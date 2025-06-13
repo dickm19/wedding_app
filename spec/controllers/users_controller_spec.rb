@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :controller do
         subject(:show) { get :show, params: { id: @user.id } }
 
         before { show }
-        
+
         it 'returns a success response' do
             expect(response).to be_successful
         end
@@ -50,7 +50,7 @@ RSpec.describe UsersController, type: :controller do
         it 'creates a new user' do
             expect(User.last.email).to eq("test2@example.com")
         end
-        
+
         context 'when the user has a nearlywed role' do
             it 'creates a wedding for the user' do
                 expect(User.last.wedding_id).not_to be_nil
