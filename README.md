@@ -1,24 +1,21 @@
-# README
+# NearlyWed
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to NearlyWed!
 
-Things you may want to cover:
 
-* Ruby version
+## Setup Instructions:
 
-* System dependencies
+### Database Setup:
+`bundle install`
 
-* Configuration
+`bundle exec rails db:create`
 
-* Database creation
+`bundle exec rails db:migrate`
 
-* Database initialization
+### Running the Server Locally
 
-* How to run the test suite
+`bundle exec rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+### *** Note ***
 
-* Deployment instructions
-
-* ...
+This is the BACKEND portion of the NearlyWed application. In order to access the frontend/UI, you need to clone the frontend application to your local machine and run the frontend servers locally. See NearlyWed Frontend README for more detailed instructions on running the frontend app.
