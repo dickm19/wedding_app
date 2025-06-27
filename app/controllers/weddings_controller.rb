@@ -43,6 +43,6 @@ class WeddingsController < ApplicationController
     private
 
     def wedding_params
-        params.require(:user).permit(:user_id, :date, :city, :state, :dress_code, :name, :guest_emails)
+        params.require(:wedding).permit({ guest_emails: []})
     end
 end
