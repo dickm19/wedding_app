@@ -30,6 +30,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!
+            UserMailer.with(user: @user).welcome_email.deliver
             render json: @user, serializer: UserSerializer
         else
             render json: {
