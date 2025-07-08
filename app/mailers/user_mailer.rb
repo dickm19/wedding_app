@@ -10,6 +10,6 @@ class UserMailer < ApplicationMailer
         @wedding = params[:wedding]
         @recipient_emails = params[:guest_emails]
         @url = "http://localhost:3000/guest_signup"
-        mail(to: @recipient_emails, subject: "Save the Date for #{wedding.date}!")
+        mail(to: @recipient_emails, subject: "Save the Date for #{@wedding.date}!")
     end
 end
