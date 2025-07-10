@@ -6,6 +6,6 @@ class UserMailerPreview < ActionMailer::Preview
 
     def guest_invite
         wedding = Wedding.last || Wedding.create(couple_names: "John and Jane", date: "2023-12-31")
-        UserMailer.with(user: User.first, wedding: wedding, guest_emails: ["guest@example.com"]).guest_invite.deliver
+        UserMailer.with(user: User.first, wedding: wedding, guest_emails: [ "guest@example.com" ]).guest_invite.deliver
     end
 end
