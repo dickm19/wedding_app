@@ -40,6 +40,22 @@ class WeddingsController < ApplicationController
         end
     end
 
+    def invite_guests
+        @wedding = Wedding.find(params[:id])
+        if @wedding
+            @guest_emails = wedding_params[:guest_emails]
+            @user = current_user
+            @wedding.update(guest_emails: @guest_emails)
+            UserMailer.with(user: @user, wedding: @wedding, recipient_emails: @guest_emails).guest_invite.deliver
+            render json: @wedding, serializer: WeddingSerializer
+        else
+            render json: {
+                status: 404,
+                errors: [ "wedding not found" ]
+            }
+        end
+    end
+
     private
 
     def wedding_params
