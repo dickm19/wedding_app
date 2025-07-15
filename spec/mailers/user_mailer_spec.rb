@@ -1,9 +1,8 @@
 require "rails_helper"
 
 RSpec.describe UserMailer, type: :mailer do
-  let(:user) { User.create(email: "test@example.com") }
-
   describe "welcome_email" do
+    let(:user) { User.create(email: "test@example.com") }
     let(:mail) { UserMailer.with(user: user).welcome_email }
 
     it "renders the headers" do
