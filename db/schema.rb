@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_08_204944) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_17_204955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -77,6 +77,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_204944) do
     t.string "role", default: "nearlywed", null: false
     t.bigint "wedding_id"
     t.string "rsvp"
+    t.string "full_name"
     t.index ["wedding_id"], name: "index_users_on_wedding_id"
   end
 
